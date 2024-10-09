@@ -20,7 +20,10 @@ class AuthAdmin
         if(Auth::check()){
             if(Auth::user()->utype === 'ADM' ){
                 return $next($request);
-            }else{
+            }elseif(Auth::user()->utype === 'USR' ){
+                return $next($request);
+            }
+            else{
                 Session::flush();
                 return redirect()->route('login');
             }

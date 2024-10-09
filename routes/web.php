@@ -13,11 +13,12 @@ Auth::routes();
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
 
-Route::middleware([Auth::class,AuthUser::class])->group(function(){
+Route::middleware(['auth'])->group(function(){
     Route::get('/account-dashboard', [UserController::class, 'index'])->name('user.index');
 });
 
 
 Route::middleware([AuthAdmin::class])->group(function(){
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
+    Route::get('/admin/brands', [AdminController::class, 'brands'])->name('admin.brands');
 });
