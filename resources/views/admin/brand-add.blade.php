@@ -1,4 +1,3 @@
-
 @extends('layouts.admin')
 @section('content')
 <div class="main-content-inner">
@@ -42,7 +41,7 @@
                     <div class="body-title">Upload images <span class="tf-color-1">*</span></div>
                     <div class="upload-image flex-grow">
                         <div class="item" id="imgpreview" style="display:none">                            
-                            <img src="{{asset('images/upload/upload-1.png')}}" class="effect8" alt="">
+                            <img src="upload-1.html" class="effect8" alt="">
                         </div>
                         <div id="upload-file" class="item up-load">
                             <label class="uploadfile" for="myFile">
@@ -70,6 +69,7 @@
 
 </div>
 @endsection
+
 @push("scripts")
     <script>
             $(function(){
