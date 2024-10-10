@@ -68,11 +68,18 @@
                                        <i class="icon-edit-3"></i>
                                             </div>
                                        </a>
-                                        <form action="#" method="POST">
-                                            <div class="item text-danger delete">
-                                                <i class="icon-trash-2"></i>
-                                            </div>
-                                        </form>
+                                       <form action="{{route('admin.brand.delete',['id'=>$brand->id])}}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <div class="item text-danger delete">
+                                            <a href="{{route('admin.brand.delete',['id'=>$brand->id])}}">
+                                                <div class="item delete">
+                                                    <i class="icon-trash-2"></i>
+                                                </div>
+                                           </a>   
+                                        </div>
+                                        <i class="icon-trash-2"></i>
+                                   </form>
                                     </div>
                                 </td>
                             </tr>
@@ -91,3 +98,25 @@
 </div>
 
 @endsection
+
+@push('scripts')
+    <script>
+        $(function(){
+            $(".delete").on('click',function(e){
+                e.preventDefault();
+                var selectedForm = $(this).closest('form');
+                swal({
+                    title: "Are you sure?",
+                    text: "You want to delete this record?",
+                    type: "warning",
+                    buttons: ["No!", "Yes!"],
+                    confirmButtonColor: '#dc3545'
+                }).then(function (result) {
+                    if (result) {
+                        selectedForm.submit();  
+                    }
+                });                             
+            });
+        });
+    </script>
+@endpush
