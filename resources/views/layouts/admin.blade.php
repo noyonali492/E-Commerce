@@ -7,6 +7,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
+    <script type = "text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js">
+      </script>   
  
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="author" content="themesflat.com">

@@ -68,29 +68,28 @@
 </div>                    
 
 </div>
+
+<script>
+    $(function(){
+        $("#myFile").on("change",function(e){
+            const photoInp = $("#myFile");                    
+            const [file] = this.files;
+            if (file) {
+                $("#imgpreview img").attr('src',URL.createObjectURL(file));
+                $("#imgpreview").show();                        
+            }
+        }); 
+
+        $("input[name='name']").on("change",function(){
+            $("input[name='slug']").val(StringToSlug($(this).val()));
+        });
+        
+    });
+    function StringToSlug(Text) {
+        return Text.toLowerCase()
+        .replace(/[^\w ]+/g, "")
+        .replace(/ +/g, "-");
+    }      
+</script>
 @endsection
 
-@push("scripts")
-    <script>
-            $(function(){
-                $("#myFile").on("change",function(e){
-                    const photoInp = $("#myFile");                    
-                    const [file] = this.files;
-                    if (file) {
-                        $("#imgpreview img").attr('src',URL.createObjectURL(file));
-                        $("#imgpreview").show();                        
-                    }
-                }); 
-
-                $("input[name='name']").on("change",function(){
-                    $("input[name='slug']").val(StringToSlug($(this).val()));
-                });
-                
-            });
-            function StringToSlug(Text) {
-                return Text.toLowerCase()
-                .replace(/[^\w ]+/g, "")
-                .replace(/ +/g, "-");
-            }      
-    </script>
-@endpush
