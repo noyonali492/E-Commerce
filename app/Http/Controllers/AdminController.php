@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Brand;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Carbon;
@@ -95,4 +96,14 @@ class AdminController extends Controller
         })->save($destinationPath.'/'.$imageName);
 
     }
+
+
+
+    // categories
+
+    public function categories()
+ {
+        $categories = Category::orderBy('id','DESC')->paginate(10);
+        return view("admin.categories",compact('categories'));
+ }
 }

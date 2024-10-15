@@ -100,22 +100,22 @@
                                 </li>
                                 <li class="menu-item has-children">
                                     <a href="javascript:void(0);" class="menu-item-button">
-                                        <div class="icon"><i class="icon-layers"></i></div>
-                                        <div class="text">Category</div>
+                                           <div class="icon"><i class="icon-layers"></i></div>
+                                           <div class="text">Category</div>
                                     </a>
                                     <ul class="sub-menu">
-                                        <li class="sub-menu-item">
-                                            <a href="add-category.html" class="">
-                                                <div class="text">New Category</div>
-                                            </a>
-                                        </li>
-                                        <li class="sub-menu-item">
-                                            <a href="categories.html" class="">
-                                                <div class="text">Categories</div>
-                                            </a>
-                                        </li>
+                                           <li class="sub-menu-item">
+                                                  <a href="#" class="">
+                                                  <div class="text">New Category</div>
+                                                  </a>
+                                           </li>
+                                           <li class="sub-menu-item">
+                                                  <a href="{{route('admin.categories')}}" class="">
+                                                  <div class="text">Categories</div>
+                                                  </a>
+                                           </li>
                                     </ul>
-                                </li>
+                             </li> 
 
                                 <li class="menu-item has-children">
                                     <a href="javascript:void(0);" class="menu-item-button">
