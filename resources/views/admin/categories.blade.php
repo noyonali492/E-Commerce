@@ -81,9 +81,13 @@
                                         </a>        
                                     
 
-                                    <div class="item text-danger delete">
-                                          <i class="icon-trash-2"></i>
-                                   </div>
+                                    <form action="{{route('admin.category.delete',['id'=>$category->id])}}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <div class="item text-danger delete">
+                                            <i class="icon-trash-2"></i>
+                                        </div>
+                                    </form>
                                 </div>
                             </td>
                         </tr>
@@ -101,8 +105,7 @@
 
 <script>
     $(function(){
-        $("#delete").on('click',function(e){
-            alert('alom bepari');
+        $(".delete").on('click',function(e){
             e.preventDefault();
             var selectedForm = $(this).closest('form');
             swal({
@@ -118,5 +121,5 @@
             });                             
         });
     });
-</script>
+</script> 
 @endsection
