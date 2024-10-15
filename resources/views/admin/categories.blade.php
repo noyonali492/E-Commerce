@@ -74,9 +74,12 @@
                             {{-- <td><a href="{{route('admin.category.products',['category_slug'=>$category->slug])}}" target="_blank">{{$category->products()->count()}}</a></td>                                --}}
                             <td>
                                 <div class="list-icon-function">                                    
-                                    <div class="item edit">
-                                          <i class="icon-edit-3"></i>
-                                   </div>
+                                    <a href="{{route('admin.category.edit',['id'=>$category->id])}}">
+                                            <div class="item edit">
+                                                <i class="icon-edit-3"></i>
+                                            </div>
+                                        </a>        
+                                    
 
                                     <div class="item text-danger delete">
                                           <i class="icon-trash-2"></i>
