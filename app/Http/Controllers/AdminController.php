@@ -483,7 +483,26 @@ class AdminController extends Controller
 
     public function delete_product($id)
     {
-        $product = Product::find($id);        
+        $product = Product::find($id);    
+        if (File::exists(public_path('uploads/products').'/'.$product->image)) {
+            File::delete(public_path('uploads/products').'/'.$product->image);
+        }
+        if (File::exists(public_path('uploads/products/thumbnails').'/'.$product->image)) {
+            File::delete(public_path('uploads/products/thumbnails').'/'.$product->image);
+        }  
+        
+
+        $oldGImages = explode(",",$product->images);
+        foreach($oldGImages as $gimage)
+        {
+            if (File::exists(public_path('uploads/products').'/'.$gimage)) {
+                File::delete(public_path('uploads/products').'/'.$gimage);
+            }
+            if (File::exists(public_path('uploads/products/thumbnails').'/'.$gimage)) {
+                File::delete(public_path('uploads/products/thumbnails').'/'.$gimage);
+            }
+        }
+        
         $product->delete();
         return redirect()->route('admin.products')->with('status','Record has been deleted successfully !');
     }
