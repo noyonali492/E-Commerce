@@ -88,9 +88,11 @@
                                     <div class="item eye">
                                         <i class="icon-eye"></i>
                                     </div>
-                                     <div class="item edit">
-                                        <i class="icon-edit-3"></i>
-                                    </div>
+                                    <a href="{{route('admin.product.edit',['id'=>$product->id])}}">
+                                        <div class="item edit">
+                                            <i class="icon-edit-3"></i>
+                                         </div>
+                                    </a>
 
                                     <div class="item text-danger delete">
                                         <i class="icon-trash-2"></i>
