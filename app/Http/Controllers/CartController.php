@@ -8,16 +8,32 @@ use Cart;
 class CartController extends Controller
 {
     
-public function index()
-{
-    $cartItems = Cart::instance('cart')->content();
-    return view('cart',compact('cartItems'));
-}
+    public function index()
+    {
+        $cartItems = Cart::instance('cart')->content();
+        return view('cart',compact('cartItems'));
+    }
 
-public function addToCart(Request $request)
-{
-    Cart::instance('cart')->add($request->id,$request->name,$request->quantity,$request->price)->associate('App\Models\Product');        
-    session()->flash('success', 'Product is Added to Cart Successfully !');        
-    return Redirect()->back()->with(['status'=>200,'message'=>'Success ! Item Successfully added to your cart.']);
-} 
+    public function addToCart(Request $request)
+    {
+        Cart::instance('cart')->add($request->id,$request->name,$request->quantity,$request->price)->associate('App\Models\Product');        
+        session()->flash('success', 'Product is Added to Cart Successfully !');        
+        return Redirect()->back()->with(['status'=>200,'message'=>'Success ! Item Successfully added to your cart.']);
+    } 
+
+
+    public function increase_item_quantity($rowId)
+    {
+        $product = Cart::instance('cart')->get($rowId);
+        $qty = $product->qty + 1;
+        Cart::instance('cart')->update($rowId,$qty);
+        return redirect()->back();
+    }
+
+    public function reduce_item_quantity($rowId){
+        $product = Cart::instance('cart')->get($rowId);
+        $qty = $product->qty - 1;
+        Cart::instance('cart')->update($rowId,$qty);
+        return redirect()->back();
+    }
 }
