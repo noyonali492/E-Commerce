@@ -267,8 +267,8 @@
         </a>
   
         <div class="logo">
-          <a href="index.html">
-            <img src="assets/images/logo.png" alt="Uomo" class="logo__image d-block" />
+          <a href="{{route('home.index')}}">
+            <img src="{{asset('assets/images/logo.png')}}" alt="Uomo" class="logo__image d-block" />
           </a>
         </div>
   
@@ -306,7 +306,7 @@
           <div class="overflow-hidden">
             <ul class="navigation__list list-unstyled position-relative">
               <li class="navigation__item">
-                <a href="index.html" class="navigation__link">Home</a>
+                <a href="{{route('home.index')}}" class="navigation__link">Home</a>
               </li>
               <li class="navigation__item">
                 <a href="{{route('shop.index')}}" class="navigation__link">Shop</a>
@@ -387,15 +387,15 @@
       <div class="container">
         <div class="header-desk header-desk_type_1">
           <div class="logo">
-            <a href="index.html">
-              <img src="assets/images/logo.png" alt="Uomo" class="logo__image d-block" />
+            <a href="{{route('home.index')}}">
+              <img src="{{asset('assets/images/logo.png')}}" alt="Uomo" class="logo__image d-block" />
             </a>
           </div>
   
           <nav class="navigation">
             <ul class="navigation__list list-unstyled d-flex">
               <li class="navigation__item">
-                <a href="index.html" class="navigation__link">Home</a>
+                <a href="{{route('home.index')}}" class="navigation__link">Home</a>
               </li>
               <li class="navigation__item">
                 <a href="{{route('shop.index')}}" class="navigation__link">Shop</a>
@@ -507,8 +507,8 @@
         <div class="row row-cols-lg-5 row-cols-2">
           <div class="footer-column footer-store-info col-12 mb-4 mb-lg-0">
             <div class="logo">
-              <a href="index.html">
-                <img src="assets/images/logo.png" alt="SurfsideMedia" class="logo__image d-block" />
+              <a href="{{route('home.index')}}">
+                <img src="{{asset('assets/images/logo.png')}}" alt="SurfsideMedia" class="logo__image d-block" />
               </a>
             </div>
             <p class="footer-address">123 Beach Avenue, Surfside City, CA 00000</p>
