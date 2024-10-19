@@ -102,7 +102,7 @@
                 <div class="product-single__short-desc">
                     <p>{{$product->short_description}}</p>
                 </div>
-                {{-- @if(Cart::instance("cart")->content()->Where('id',$product->id)->count()>0)
+                @if(Cart::instance("cart")->content()->Where('id',$product->id)->count()>0)
                     <a href="{{route('cart.index')}}" class="btn btn-warning mb-3">Go to Cart</a>
                 @else
                 <form name="addtocart-form" method="POST" action="{{route('cart.add')}}">
@@ -119,7 +119,7 @@
                         <button type="submit" class="btn btn-primary">Add to Cart</button>
                     </div>
                 </form>
-                @endif --}}
+                @endif
                 <div class="product-single__addtolinks">
                     <a href="#" class="menu-link menu-link_us-s add-to-wishlist"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <use href="#icon_heart" />
