@@ -3,13 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Product;
+use App\Models\Category;
+use App\Models\Brand;
 use Cart;
 
 class CartController extends Controller
 {
     
-    public function index()
+    public function index(Request $request)
     {
+
         $cartItems = Cart::instance('cart')->content();
         return view('cart',compact('cartItems'));
     }
@@ -36,4 +40,17 @@ class CartController extends Controller
         Cart::instance('cart')->update($rowId,$qty);
         return redirect()->back();
     }
+
+    public function remove_item_from_cart($rowId)
+    {
+        Cart::instance('cart')->remove($rowId);
+        return redirect()->back();
+    }
+
+    public function empty_cart()
+    {
+        Cart::instance('cart')->destroy();
+        return redirect()->back();
+    }
+
 }
