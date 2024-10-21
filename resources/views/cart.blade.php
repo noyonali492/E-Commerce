@@ -172,7 +172,11 @@
 
         $('.remove-cart').on("click",function(){                
                 $(this).closest('form').submit();
+<<<<<<< HEAD
             }); 
+=======
+        });  
+>>>>>>> 1b4a21f797b192d202f6a396b116ef36a5a87b39
 
     });
 </script>

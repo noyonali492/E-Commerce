@@ -22,6 +22,10 @@ Route::put('/cart/increase-qunatity/{rowId}',[CartController::class,'increase_it
 Route::put('/cart/reduce-qunatity/{rowId}',[CartController::class,'reduce_item_quantity'])->name('cart.reduce.qty');
 Route::delete('/cart/remove/{rowId}',[CartController::class,'remove_item_from_cart'])->name('cart.remove');
 Route::delete('/cart/clear',[CartController::class,'empty_cart'])->name('cart.empty');
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1b4a21f797b192d202f6a396b116ef36a5a87b39
 
 
 Route::middleware(['auth'])->group(function(){

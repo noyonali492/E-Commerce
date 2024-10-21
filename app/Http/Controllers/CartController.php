@@ -41,16 +41,27 @@ class CartController extends Controller
         return redirect()->back();
     }
 
+<<<<<<< HEAD
     public function remove_item_from_cart($rowId)
+=======
+        public function remove_item_from_cart($rowId)
+>>>>>>> 1b4a21f797b192d202f6a396b116ef36a5a87b39
     {
         Cart::instance('cart')->remove($rowId);
         return redirect()->back();
     }
 
+<<<<<<< HEAD
     public function empty_cart()
+=======
+        public function empty_cart()
+>>>>>>> 1b4a21f797b192d202f6a396b116ef36a5a87b39
     {
         Cart::instance('cart')->destroy();
         return redirect()->back();
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1b4a21f797b192d202f6a396b116ef36a5a87b39
 }
