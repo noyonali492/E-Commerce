@@ -1,6 +1,24 @@
 @extends('layouts.app')
 @section('content')
 
+<style>
+  .brand-list li, .category-list li{
+    line-height: 40px
+  }
+  .brand-list li .chk-brand , .category-list li .chk-category{
+    width: 1rem;
+    height: 1rem;
+    color: #e4e4e4;
+    border: 0.125rem solid currentColor;
+    border-radius: 0;
+    margin-right: 0.75rem;
+  }
+  .filled-heart{
+    color: orange;
+  }
+
+</style>
+
 <main class="pt-90">
     <section class="shop-main container d-flex pt-4 pt-xl-5">
       <div class="shop-sidebar side-sticky bg-body" id="shopFilter">
@@ -371,7 +389,7 @@
                             </div>
                             <span class="reviews-note text-lowercase text-secondary ms-1">8k+ reviews</span>
                         </div>
-                        {{-- @if(Cart::instance("wishlist")->content()->Where('id',$product->id)->count()>0)
+                         @if(Cart::instance("wishlist")->content()->Where('id',$product->id)->count()>0)
                             <form method="POST" action="{{route('wishlist.remove',['rowId'=>Cart::instance("wishlist")->content()->Where('id',$product->id)->first()->rowId])}}">                                    
                                 @csrf
                                 @method("DELETE")
@@ -381,8 +399,8 @@
                                     </svg>
                                 </button>
                             </form>
-                        @else --}}
-                        {{-- <form method="POST" action="{{route('wishlist.add')}}">
+                        @else 
+                         <form method="POST" action="{{route('wishlist.add')}}">
                             @csrf
                             <input type="hidden" name="id" value="{{$product->id}}" />
                             <input type="hidden" name="name" value="{{$product->name}}" />
@@ -394,7 +412,7 @@
                                 </svg>
                             </button>
                         </form>
-                        @endif --}}
+                        @endif -
                     </div>
                 </div>
             </div>
