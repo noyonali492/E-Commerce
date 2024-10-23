@@ -14,7 +14,8 @@
                         <tr>
                             <th>Product</th>
                             <th></th>
-                            <th>Price</th>                           
+                            <th>Price</th>
+                            <th>Quantity</th>                          
                             <th>Action</th>                            
                         </tr>
                     </thead>
@@ -37,12 +38,19 @@
                             </td>
                             <td>
                                 <span class="shopping-cart__product-price">${{$wishlistItem->price}}</span>
-                            </td>      
+                            </td>  
+                            <td>
+                                {{$wishlistItem->qty}}
+                            </td>     
                             <td>
                                 <div class="del-action">
                                     <button type="submit" class="remove-cart btn btn-sm btn-warning">Move to Cart</button>
                                 
-                                    <button type="submit" class="remove-cart btn btn-sm btn-danger">Remove</button>
+                                    <form method="POST" action="{{route('wishlist.remove',['rowId'=>$wishlistItem->rowId])}}">                                    
+                                        @csrf
+                                        @method("DELETE")
+                                        <button type="submit" class="remove-cart btn btn-sm btn-danger">Remove</button>
+                                        </form> 
                                 </div>                               
                             </td>
                         </tr>   
