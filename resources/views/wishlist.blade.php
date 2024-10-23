@@ -44,7 +44,10 @@
                             </td>     
                             <td>
                                 <div class="del-action">
-                                    <button type="submit" class="remove-cart btn btn-sm btn-warning">Move to Cart</button>
+                                    <form method="POST" action="{{route('wishlist.move.to.cart',['rowId'=>$wishlistItem->rowId])}}">                                    
+                                        @csrf                                    
+                                        <button type="submit" class="remove-cart btn btn-sm btn-warning">Move to Cart</button>
+                                        </form>
                                 
                                     <form method="POST" action="{{route('wishlist.remove',['rowId'=>$wishlistItem->rowId])}}">                                    
                                         @csrf
