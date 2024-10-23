@@ -50,15 +50,21 @@
                                         @csrf
                                         @method("DELETE")
                                         <button type="submit" class="remove-cart btn btn-sm btn-danger">Remove</button>
-                                        </form> 
+                                    </form> 
                                 </div>                               
                             </td>
                         </tr>   
                         @endforeach
                     </tbody>
                 </table>      
-                <div class="cart-table-footer">                    
-                    <button class="btn btn-light" type="submit">CLEAR WISHLIST</button>
+                <div class="cart-table-footer">       
+                    <form method="POST" action="{{route('wishlist.empty',['rowId'=>$wishlistItem->rowId])}}">                                    
+                        @csrf
+                        @method("DELETE")
+                        <button class="btn btn-light" type="submit">CLEAR WISHLIST</button>
+                        
+                    </form>              
+                    
                 </div>          
             </div>   
             @else
