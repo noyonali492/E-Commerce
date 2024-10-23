@@ -38,7 +38,7 @@ class WishlistController extends Controller
     {
         $item = Cart::instance('wishlist')->get($rowId);
         Cart::instance('wishlist')->remove($rowId);
-        Cart::instance('cart')->add($item->id,$item->name,1,$item->price)->associate('App\Models\Product');
+        Cart::instance('cart')->add($item->id,$item->name,$item->qty,$item->price)->associate('App\Models\Product');
         return redirect()->back();         
     }
 }
