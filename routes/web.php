@@ -67,5 +67,6 @@ Route::middleware([AuthAdmin::class])->group(function(){
     //coupon
 
     Route::get('/admin/coupons',[AdminController::class,'coupons'])->name('admin.coupons');
-    Route::get('/admin/coupons/add',[AdminController::class,'coupons'])->name('admin.coupon.add');
+    Route::get('/admin/coupon/add',[AdminController::class,'add_coupon'])->name('admin.coupon.add');
+    Route::post('/admin/coupon/store',[AdminController::class,'add_coupon_store'])->name('admin.coupon.store');
 });
