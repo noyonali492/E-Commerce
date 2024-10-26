@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
 use App\Models\Brand;
+use App\Models\Order;
+use App\Models\OrderItem;
+use App\Models\Transaction;
 use App\Models\Coupon;
 use App\Models\Address;
 use Illuminate\Support\Facades\Session;
@@ -194,17 +197,28 @@ class CartController extends Controller
         $orderitem->save();                   
     }
 
-    $transaction = new Transaction();
-    $transaction->user_id = $user_id;
-    $transaction->order_id = $order->id;
-    $transaction->mode = $request->mode;
-    $transaction->status = "pending";
-    $transaction->save();
+    if($request->mode == 'card'){
+
+    }
+    elseif($request->mode == 'paypal'){
+
+    }
+    elseif($request->mode == 'cod'){
+        $transaction = new Transaction();
+        $transaction->user_id = $user_id;
+        $transaction->order_id = $order->id;
+        $transaction->mode = $request->mode;
+        $transaction->status = "pending";
+        $transaction->save();
+    }
+   
     
     Cart::instance('cart')->destroy();
     session()->forget('checkout');
     session()->forget('coupon');
     session()->forget('discounts');
+    session()->put('order_id',$order->id);
+    //return view('order-confirmation');
     return redirect()->route('cart.confirmation');
 }
 
@@ -239,7 +253,12 @@ public function setAmountForCheckout()
 
 public function confirmation()
 {
-    return view('order-confirmation');
+    if(Session::has('order_id'))
+    {
+        $order =Order::find(Session::get('order_id'));
+        return view('order-confirmation',compact('order')); 
+    }
+    return redirect()->route('cart.index');
 }
 
 }
