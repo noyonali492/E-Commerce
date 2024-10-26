@@ -62,11 +62,17 @@ class CartController extends Controller
         
         if(isset($coupon_code))
         { 
+
+            // $cartSubtotal = floatval(Cart::instance('cart')->subtotal());
+            // $coupon = Coupon::where('code', $coupon_code)
+            //     ->where('expiry_date', '>=', Carbon::now())
+            //     ->where('cart_value', '<=', $cartSubtotal)
+            //     ->first();
             //$coupon = Coupon::where('code',$coupon_code)->first();
             //$coupon=$couponn->code;
-            //dd($coupon);
-             $coupon = Coupon::where('code',$coupon_code)->where('expiry_date','>=',Carbon::today())
-                ->where('cart_value','<=',Cart::instance('cart')->subtotal())->first();
+           // dd($coupon_code);
+               $coupon = Coupon::where('code',$coupon_code)->where('expiry_date','>=',Carbon::now())
+                  ->where('cart_value','<=',Cart::instance('cart')->subtotal())->first();
             if(!$coupon)
             {
                 return back()->with('error','Invalid coupon code!');
