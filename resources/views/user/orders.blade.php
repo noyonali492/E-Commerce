@@ -42,7 +42,7 @@
                                     <th class="text-center">Order Date</th>
                                     <th class="text-center">Items</th>
                                     <th class="text-center">Delivered On</th>
-                                    <th></th>
+                                    <th class="text-center">Order Details</th>
                                 </tr>
                             </thead>
                             <tbody>

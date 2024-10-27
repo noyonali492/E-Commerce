@@ -33,4 +33,13 @@ class UserController extends Controller
             $transaction = Transaction::where('order_id',$order_id)->first();
             return view('user.order-details',compact('order','orderItems','transaction'));
     }
+
+    public function account_cancel_order(Request $request)
+    {
+        $order = Order::find($request->order_id);
+        $order->status = "canceled";
+        $order->canceled_date = Carbon::now();
+        $order->save();
+        return back()->with("status", "Order has been cancelled successfully!");
+    }
 }
