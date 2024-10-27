@@ -33,6 +33,8 @@ Route::get('/order-user.user.account.address.edit',[CartController::class,'confi
 Route::get('/order-user.account.addresses',[CartController::class,'confirmation'])->name('user.account.addresses');
 
 
+Route::get('/account-orders',[UserController::class,'account_orders'])->name('user.account.orders');
+Route::get('/account-order-detials/{order_id}',[UserController::class,'account_order_details'])->name('user.acccount.order.details');
 
 
 Route::get('/wishlist',[WishlistController::class,'index'])->name('wishlist.index');

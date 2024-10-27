@@ -105,7 +105,7 @@
                             <td class="text-center">{{$orderitem->options}}</td>
                             <td class="text-center">{{$orderitem->rstatus == 0 ? "No":"Yes"}}</td>                                                                                
                             <td class="text-center">
-                                <a href="{{route('shop.product.details',["product_slug"=>$orderitem->product->slug])}}" target="_blank">
+                                <a href="{{route('shop.product.details',['product_slug'=>$orderitem->product->slug])}}" target="_blank">
                                     <div class="list-icon-function view-icon">
                                         <div class="item eye">
                                             <i class="icon-eye"></i>
@@ -129,12 +129,12 @@
             <h5>Shipping Address</h5>
             <div class="my-account__address-item col-md-6">                
                 <div class="my-account__address-item__detail">
-                    <p>{{$transaction->order->name}}</p>
-                    <p>{{$transaction->order->address}}</p>
-                    <p>{{$transaction->order->locality}}</p>
-                    <p>{{$transaction->order->city}}, {{$transaction->order->country}}</p>
-                    <p>{{$transaction->order->landmark}}</p>
-                    <p>{{$transaction->order->zip}}</p>
+                    <p>Name: {{$transaction->order->name}}</p>
+                    <p>Address: {{$transaction->order->address}}</p>
+                    <p>locality: {{$transaction->order->locality}}</p>
+                    <p>city: {{$transaction->order->city}}, country: {{$transaction->order->country}}</p>
+                    <p>landmark: {{$transaction->order->landmark}}</p>
+                    <p>zip: {{$transaction->order->zip}}</p>
                     <br />                                
                     <p>Mobile : {{$transaction->order->phone}}</p>
                 </div>
