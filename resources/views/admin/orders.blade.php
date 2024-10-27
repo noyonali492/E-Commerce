@@ -41,9 +41,9 @@
                     </form>
                 </div>                
             </div>
-            <div class="wg-table table-all-user">
+            <div class="wg-table ">
                 <div class="table-responsive">
-                    <table class="table table-striped table-bordered">
+                    <table class="table table-bordered">
                         <thead>
                             <tr>
                                 <th style="width: 80px">Order No</th>
@@ -57,7 +57,7 @@
                                 <th class="text-center">Order Date</th>
                                 <th class="text-center">Total Items</th>
                                 <th class="text-center">Delivered On</th>
-                                <th></th>
+                                <th>Order Details</th>
                             </tr>
                         </thead>
                         <tbody>
