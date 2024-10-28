@@ -15,7 +15,7 @@
                     <i class="icon-chevron-right"></i>
                 </li>
                 <li>
-                    <div class="text-tiny">Slider</div>
+                    <div class="text-tiny">Slides</div>
                 </li>
             </ul>
         </div>
@@ -33,7 +33,7 @@
                         </div>
                     </form>
                 </div>
-                <a class="tf-button style-1 w208" href="add-slide.html"><i
+                <a class="tf-button style-1 w208" href="{{ route('admin.slide.add') }}"><i
                         class="icon-plus"></i>Add new</a>
             </div>
             <div class="wg-table table-all-user">
@@ -56,7 +56,7 @@
                             <td>{{ $slide->id }}</td>
                             <td class="pname">
                                 <div class="image">
-                                    <img src="{{ asset('uploades/slides') }}/{{ $slide->image }}" alt="{{ $slide->image }}" class="{{ $slide->title }}">
+                                    <img src="{{ asset('uploads/slides') }}/{{ $slide->image }}" alt="{{ $slide->image }}" class="{{ $slide->title }}">
                                 </div>
                             </td>
                             <td>{{ $slide->tagline }}</td>
@@ -65,7 +65,7 @@
                             <td>{{ $slide->link }}</td>
                             <td>
                                 <div class="list-icon-function">
-                                    <a href="#">
+                                    <a href="{{ route('admin.slide.edit',['id'=>$slide->id]) }}">
                                         <div class="item edit">
                                             <i class="icon-edit-3"></i>
                                         </div>
