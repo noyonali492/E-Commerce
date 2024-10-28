@@ -90,4 +90,5 @@ Route::middleware([AuthAdmin::class])->group(function(){
     Route::get('/admin/orders',[AdminController::class,'orders'])->name('admin.orders');
     Route::get('/admin/order/items/{order_id}',[AdminController::class,'order_items'])->name('admin.order.items');
     Route::put('/admin/order/update-status',[AdminController::class,'update_order_status'])->name('admin.order.status.update');
+    Route::put('/admin/slides',[AdminController::class,'slides'])->name('admin.slides');
 });

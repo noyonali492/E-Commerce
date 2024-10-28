@@ -19,6 +19,7 @@
       rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Allura&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('assets/css/plugins/swiper.min.css')}}" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="{{asset('css/sweetalert.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}" type="text/css" />
     <link rel="stylesheet" href="{{asset('assets/css/custom.css')}}" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -671,6 +672,7 @@
     <script src="{{asset('assets/js/plugins/bootstrap.bundle.min.js')}}"></script>
     <script src="{{asset('assets/js/plugins/bootstrap-slider.min.js')}}"></script>
     <script src="{{asset('assets/js/plugins/swiper.min.js')}}"></script>
+    <script src="{{asset('js/sweetalert.min.js')}}"></script>  
     <script src="{{asset('assets/js/plugins/countdown.js')}}"></script>
     <script src="{{asset('assets/js/theme.js')}}"></script>
   </body>

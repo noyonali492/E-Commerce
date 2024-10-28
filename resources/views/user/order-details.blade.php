@@ -198,7 +198,7 @@
                     @csrf
                     @method("PUT")
                     <input type="hidden" name="order_id" value="{{$order->id}}" />
-                    <button type="submit" class="btn btn-danger">Cancel Order</button>                        
+                    <button type="button" class="btn btn-danger cancel-order">Cancel Order</button>                        
                 </form>
             </div>
             </div>            
@@ -206,4 +206,24 @@
         </div>
     </section>
 </main>
+
+<script>
+    $(function(){
+        $(".cancel-order").on('click',function(e){
+            e.preventDefault();
+            var selectedForm = $(this).closest('form');
+            swal({
+                title: "Are you sure?",
+                text: "You want to Cancel this order?",
+                type: "warning",
+                buttons: ["No!", "Yes!"],
+                confirmButtonColor: '#dc3545'
+            }).then(function (result) {
+                if (result) {
+                    selectedForm.submit();  
+                }
+            });                             
+        });
+    });
+</script> 
 @endsection
