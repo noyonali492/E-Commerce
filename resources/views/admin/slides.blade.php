@@ -70,13 +70,14 @@
                                             <i class="icon-edit-3"></i>
                                         </div>
                                     </a>
-                                    <form action=""
-                                        method="POST">
-                                       <div class="item text-danger delete">
+                                    <form action="{{route('admin.slide.delete',['id'=>$slide->id])}}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <div class="item text-danger delete">
                                             <i class="icon-trash-2"></i>
                                         </div>
                                     </form>
-                                </div>
+                                   </div>
                             </td>
                         </tr>
                         @endforeach
@@ -90,4 +91,24 @@
         </div>
     </div>
 </div>
+
+<script>
+    $(function(){
+        $(".delete").on('click',function(e){
+            e.preventDefault();
+            var selectedForm = $(this).closest('form');
+            swal({
+                title: "Are you sure?",
+                text: "You want to delete this record?",
+                type: "warning",
+                buttons: ["No!", "Yes!"],
+                confirmButtonColor: '#dc3545'
+            }).then(function (result) {
+                if (result) {
+                    selectedForm.submit();  
+                }
+            });                             
+        });
+    });
+</script>    
 @endsection

@@ -699,6 +699,13 @@ class AdminController extends Controller
         $slide->save();
         return redirect()->route('admin.slides')->with('status','Slide Updated Successfully!');
     }
+
+    public function delete_slide($id)
+    {
+            $coupon = Slide::find($id);        
+            $coupon->delete();
+            return redirect()->route('admin.slides')->with('status','Record has been deleted successfully !');
+    }
     
 
 }
