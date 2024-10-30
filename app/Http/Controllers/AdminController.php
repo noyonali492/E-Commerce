@@ -15,11 +15,24 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\File;
 use Intervention\Image\Laravel\Facades\Image;
+use DB;
 
 class AdminController extends Controller
 {
     public function index(){
-        return view('admin.index');
+        $orders = Order::orderBy('created_at','DESC')->get()->take(10);
+                    $dashboardDatas = DB::select("SELECT 
+                    SUM(total) AS TotalAmount, 
+                    SUM(IF(status = 'ordered', total, 0)) AS TotalOrderedAmount,
+                    SUM(IF(status = 'delivered', total, 0)) AS TotalDeliveredAmount,
+                    SUM(IF(status = 'canceled', total, 0)) AS TotalCanceledAmount,
+                    COUNT(*) AS Total,
+                    SUM(IF(status = 'ordered', 1, 0)) AS TotalOrdered,
+                    SUM(IF(status = 'delivered', 1, 0)) AS TotalDelivered,
+                    SUM(IF(status = 'canceled', 1, 0)) AS TotalCanceled
+                    FROM Orders
+                    ");
+        return view('admin.index',compact('orders','dashboardDatas'));
     }
 
     public function brands(){
