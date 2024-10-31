@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contact;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
@@ -718,6 +719,11 @@ class AdminController extends Controller
             $coupon = Slide::find($id);        
             $coupon->delete();
             return redirect()->route('admin.slides')->with('status','Record has been deleted successfully !');
+    }
+
+    public function contacts(){
+        $contacts =Contact::orderBy('created_at','DESC')->paginate(10);
+        return view('admin.contacts',compact('contacts'));
     }
     
 
